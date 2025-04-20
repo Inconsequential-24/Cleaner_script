@@ -70,3 +70,4 @@ MIT License. Do what you want, just don't blame me for deleted files ...
 
 Made by [Juhi Dwivedi](https://github.com/Inconsequential-24) because I can manage to run out of storage even if I have 1 TB of storage.
 
+In case of doubts, please reach out to me on LinkedIn - [juhi-dwivedi](https://www.linkedin.com/in/juhi-dwivedi/).
