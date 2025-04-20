@@ -44,25 +44,25 @@ def scan_for_large_venvs(base_path, min_size_mb):
                 size_mb = get_size_in_mb(full_path)
                 if size_mb > min_size_mb:
                     large_venvs.append((str(full_path), round(size_mb, 2)))
-        # Skip subdirectories if "venv" found
+        # Skipping subdirectories if "venv" found
         dirs[:] = [d for d in dirs if d != "venv"]
 
     return sorted(large_venvs, key=lambda x: x[1], reverse=True)
 
 def confirm_and_delete(paths):
     for path, size in paths:
-        confirm = input(f'\n⚠️ {path} ({size} MB)\nDo you want to delete this? [y/N]: ')
+        confirm = input(f'\n⚠ {path} ({size} MB)\nDo you want to delete this? [y/N]: ')
         if confirm.lower() == 'y':
             try:
                 if os.path.isdir(path):
                     shutil.rmtree(path)
                 else:
                     os.remove(path)
-                print(f"✅ Deleted: {path}")
+                print(f" Deleted: {path}")
             except Exception as e:
-                print(f"❌ Failed to delete {path}: {e}")
+                print(f" Failed to delete {path}: {e}")
         else:
-            print("⏩ Skipped.")
+            print(" Skipped.")
 
 if __name__ == "__main__":
     print("🔎 Scanning for large `.so` files and `venv/` directories...\n")
@@ -71,17 +71,17 @@ if __name__ == "__main__":
     venvs = scan_for_large_venvs(BASE_DIR, SIZE_THRESHOLD_MB)
 
     if not so_files and not venvs:
-        print("✅ No large files or environments found.")
+        print(" No large files or environments found.")
     else:
-        print("📦 Large .so Files Found:")
+        print(" Large .so Files Found:")
         for path, size in so_files:
             print(f"{size} MB - {path}")
 
-        print("\n📦 Large venv Folders Found:")
+        print("\n Large venv Folders Found:")
         for path, size in venvs:
             print(f"{size} MB - {path}")
 
         if input("\nDo you want to delete any of these? [y/N]: ").lower() == 'y':
             confirm_and_delete(so_files + venvs)
         else:
-            print("👋 Cleanup skipped.")
+            print(" Cleanup skipped.")
