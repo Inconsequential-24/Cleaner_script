@@ -19,7 +19,7 @@ A simple Python utility to detect and optionally delete large `.so` files and vi
 ### 1. Clone the repository
 
 ```bash
-git clone [https://github.com/Inconsequential-24/Cleaner_script]
+git clone https://github.com/Inconsequential-24/Cleaner_script
 cd Cleaner_script
 ```
 
@@ -68,5 +68,5 @@ MIT License. Do what you want, just don't blame me for deleted files ...
 
 ##  Author
 
-Made by [Juhi Dwivedi][(https://github.com/Inconsequential-24)] because I can manage to run out of storage even if I have 1 TB of storage.
+Made by [Juhi Dwivedi](https://github.com/Inconsequential-24) because I can manage to run out of storage even if I have 1 TB of storage.
 
